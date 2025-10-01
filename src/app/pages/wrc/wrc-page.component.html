@@ -1,0 +1,105 @@
+<div class="sport-page sport-page--wrc">
+  <section class="sport-hero" [style.background-image]="heroImage">
+    <div class="sport-hero__content">
+      <span class="sport-badge">WRC</span>
+      <h1>Aventura total: barro, nieve y adrenalina pura</h1>
+      <p>
+        El Campeonato Mundial de Rally desafía a pilotos y copilotos en los terrenos más salvajes del planeta.
+        2025 trae híbridos Rally1 más potentes, tramos nocturnos y fan zones en cada continente.
+      </p>
+      <div class="sport-stats">
+        @for (stat of stats; track stat.label) {
+          <div class="sport-stat">
+            <strong>{{ stat.value }}</strong>
+            <span>{{ stat.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="info-grid">
+    <article class="info-card">
+      <h2>Lo esencial de la temporada</h2>
+      <ul>
+        @for (fact of keyFacts; track fact) {
+          <li>{{ fact }}</li>
+        }
+      </ul>
+      <div class="tag-list">
+        <span class="tag">Rally1</span>
+        <span class="tag">Power Stage</span>
+        <span class="tag">Shakedown</span>
+        <span class="tag">Notas de ritmo</span>
+      </div>
+    </article>
+    <article class="info-card">
+      <h2>Equipos protagonistas</h2>
+      <ul>
+        @for (team of teams; track team.name) {
+          <li><strong>{{ team.name }}:</strong> {{ team.detail }}</li>
+        }
+      </ul>
+    </article>
+    <article class="info-card">
+      <h2>Parejas imbatibles</h2>
+      <ul>
+        @for (driver of drivers; track driver.name) {
+          <li><strong>{{ driver.name }}:</strong> {{ driver.highlight }}</li>
+        }
+      </ul>
+    </article>
+  </section>
+
+  <section class="timeline">
+    <h2>Etapas para agendar</h2>
+    @for (stop of calendar; track stop.event) {
+      <div class="timeline__item">
+        <strong>{{ stop.event }}</strong>
+        <span>{{ stop.date }} · {{ stop.terrain }}</span>
+      </div>
+    }
+  </section>
+
+  <section class="focus-panel">
+    <article class="focus-card">
+      <h3>Claves del rally moderno</h3>
+      <ul>
+        @for (item of focus; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    </article>
+    <article class="focus-card">
+      <h3>Cómo seguir la acción</h3>
+      <p>
+        WRC+ ofrece onboards completos y telemetría en vivo. Las zonas de espectadores ahora cuentan con pantallas,
+        narración local y áreas seguras para ver los saltos más brutales.
+      </p>
+      <p>
+        Sigue nuestras previas en MOTORMANIA: mapas interactivos de tramos, horarios adaptados a tu país y guías de
+        neumáticos por superficie.
+      </p>
+    </article>
+  </section>
+
+  <section class="highlight-grid">
+    @for (item of highlights; track item.label) {
+      <article class="highlight-card">
+        <span>{{ item.label }}</span>
+        <strong>{{ item.value }}</strong>
+        <span>{{ item.detail }}</span>
+      </article>
+    }
+  </section>
+
+  <section class="media-banner" [style.background-image]="bannerImage">
+    <div class="media-banner__content">
+      <h2>Power Stage: cinco puntos que lo cambian todo</h2>
+      <p>
+        El domingo cierra con un tramo corto a máxima intensidad. Los cinco pilotos más veloces suman puntos extra
+        que pueden decidir el título. Cada curva vale oro.
+      </p>
+    </div>
+  </section>
+</div>

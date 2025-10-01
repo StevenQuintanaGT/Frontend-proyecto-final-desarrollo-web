@@ -1,0 +1,105 @@
+<div class="sport-page sport-page--nascar">
+  <section class="sport-hero" [style.background-image]="heroImage">
+    <div class="sport-hero__content">
+      <span class="sport-badge">NASCAR Cup</span>
+      <h1>Óvalos infinitos, adelantamientos al límite</h1>
+      <p>
+        La serie más grande de Estados Unidos mezcla tradición, show y estrategia a más de 300 km/h. Autos Next Gen,
+        playoffs electrizantes y fanáticos llenando las tribunas en cada estado.
+      </p>
+      <div class="sport-stats">
+        @for (stat of stats; track stat.label) {
+          <div class="sport-stat">
+            <strong>{{ stat.value }}</strong>
+            <span>{{ stat.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="info-grid">
+    <article class="info-card">
+      <h2>Cómo funciona la temporada</h2>
+      <ul>
+        @for (fact of keyFacts; track fact) {
+          <li>{{ fact }}</li>
+        }
+      </ul>
+      <div class="tag-list">
+        <span class="tag">Stages</span>
+        <span class="tag">Playoffs</span>
+        <span class="tag">Next Gen</span>
+        <span class="tag">Cotas Road</span>
+      </div>
+    </article>
+    <article class="info-card">
+      <h2>Equipos dominantes</h2>
+      <ul>
+        @for (team of teams; track team.name) {
+          <li><strong>{{ team.name }}:</strong> {{ team.detail }}</li>
+        }
+      </ul>
+    </article>
+    <article class="info-card">
+      <h2>Pilotos que marcan el ritmo</h2>
+      <ul>
+        @for (driver of drivers; track driver.name) {
+          <li><strong>{{ driver.name }}:</strong> {{ driver.highlight }}</li>
+        }
+      </ul>
+    </article>
+  </section>
+
+  <section class="timeline">
+    <h2>Fechas que no puedes perderte</h2>
+    @for (stop of calendar; track stop.event) {
+      <div class="timeline__item">
+        <strong>{{ stop.event }}</strong>
+        <span>{{ stop.date }} · {{ stop.track }}</span>
+      </div>
+    }
+  </section>
+
+  <section class="focus-panel">
+    <article class="focus-card">
+      <h3>Claves del garaje</h3>
+      <ul>
+        @for (item of focus; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    </article>
+    <article class="focus-card">
+      <h3>Experiencia fan</h3>
+      <p>
+        Paddock abiertos, conciertos previos y desfiles de pilotos convierten cada carrera en un festival. En
+        MOTORMANIA te guiamos con horarios, mapas de gradas y recomendaciones gastronómicas dentro de cada speedway.
+      </p>
+      <p>
+        No olvides la radio scanner: escuchar a tu piloto y a su spotter es la mejor manera de vivir el caos de los
+        restarts.
+      </p>
+    </article>
+  </section>
+
+  <section class="highlight-grid">
+    @for (item of highlights; track item.label) {
+      <article class="highlight-card">
+        <span>{{ item.label }}</span>
+        <strong>{{ item.value }}</strong>
+        <span>{{ item.detail }}</span>
+      </article>
+    }
+  </section>
+
+  <section class="media-banner" [style.background-image]="bannerImage">
+    <div class="media-banner__content">
+      <h2>Photo finish asegurado</h2>
+      <p>
+        En superspeedways los paquetes aerodinámicos mantienen a 30 autos juntos hasta la última vuelta. Una estrategia
+        de drafting bien ejecutada puede catapultar a cualquier underdog a la victoria.
+      </p>
+    </div>
+  </section>
+</div>

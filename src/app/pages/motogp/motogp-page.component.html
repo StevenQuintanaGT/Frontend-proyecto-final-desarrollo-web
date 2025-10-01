@@ -1,0 +1,105 @@
+<div class="sport-page sport-page--motogp">
+  <section class="sport-hero" [style.background-image]="heroImage">
+    <div class="sport-hero__content">
+      <span class="sport-badge">MotoGP</span>
+      <h1>Velocidad al ras del asfalto</h1>
+      <p>
+        Motos prototipo, frenadas imposibles y adelantamientos a centímetros. La temporada 2025 promete duelos épicos
+        entre Ducati, KTM y Aprilia, con sprint races que cambian el guion cada sábado.
+      </p>
+      <div class="sport-stats">
+        @for (stat of stats; track stat.label) {
+          <div class="sport-stat">
+            <strong>{{ stat.value }}</strong>
+            <span>{{ stat.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="info-grid">
+    <article class="info-card">
+      <h2>Especificaciones clave</h2>
+      <ul>
+        @for (fact of keyFacts; track fact) {
+          <li>{{ fact }}</li>
+        }
+      </ul>
+      <div class="tag-list">
+        <span class="tag">Sprint Race</span>
+        <span class="tag">Dispositivos de altura</span>
+        <span class="tag">Michelin</span>
+        <span class="tag">Holeshot</span>
+      </div>
+    </article>
+    <article class="info-card">
+      <h2>Equipos que mandan</h2>
+      <ul>
+        @for (team of teams; track team.name) {
+          <li><strong>{{ team.name }}:</strong> {{ team.detail }}</li>
+        }
+      </ul>
+    </article>
+    <article class="info-card">
+      <h2>Pilotos estrella</h2>
+      <ul>
+        @for (rider of riders; track rider.name) {
+          <li><strong>{{ rider.name }}:</strong> {{ rider.highlight }}</li>
+        }
+      </ul>
+    </article>
+  </section>
+
+  <section class="timeline">
+    <h2>Grandes premios destacados</h2>
+    @for (stop of calendar; track stop.event) {
+      <div class="timeline__item">
+        <strong>{{ stop.event }}</strong>
+        <span>{{ stop.date }} · {{ stop.track }}</span>
+      </div>
+    }
+  </section>
+
+  <section class="focus-panel">
+    <article class="focus-card">
+      <h3>Tecnología sobre dos ruedas</h3>
+      <ul>
+        @for (item of focus; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    </article>
+    <article class="focus-card">
+      <h3>Estrategia de carrera</h3>
+      <p>
+        El consumo de neumáticos traseros decide los domingos. Mantener tracción al salir de curva mientras se domina el
+        anti-wheelie es el arte que separa a los campeones.
+      </p>
+      <p>
+        Las sprint races otorgan hasta 12 puntos y reordenan la parrilla con adelantamientos a puro valor. Cada punto
+        cuenta en un campeonato cada vez más ajustado.
+      </p>
+    </article>
+  </section>
+
+  <section class="highlight-grid">
+    @for (item of highlights; track item.label) {
+      <article class="highlight-card">
+        <span>{{ item.label }}</span>
+        <strong>{{ item.value }}</strong>
+        <span>{{ item.detail }}</span>
+      </article>
+    }
+  </section>
+
+  <section class="media-banner" [style.background-image]="bannerImage">
+    <div class="media-banner__content">
+      <h2>Curvas imposibles en cámara lenta</h2>
+      <p>
+        Disfruta nuestros análisis vuelta a vuelta con telemetría comparativa entre pilotos. En MOTORMANIA encontrarás
+        gifs, repeticiones 360° y explicaciones técnicas sencillas para entender cada adelantamiento.
+      </p>
+    </div>
+  </section>
+</div>

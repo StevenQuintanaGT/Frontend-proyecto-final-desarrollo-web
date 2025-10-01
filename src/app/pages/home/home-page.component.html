@@ -1,0 +1,112 @@
+<section class="hero">
+  <div class="hero__content">
+    <span class="hero__badge">Actualizado al instante</span>
+    <h1>Tu centro de noticias y datos del motorsport</h1>
+    <p>
+      Vive la emoción de los grandes campeonatos del mundo con reportes rápidos, análisis
+      claros y recursos visuales para cada competencia. Desde la explosión de la Fórmula 1
+      hasta la resistencia extrema de Le Mans, aquí todo gira a máxima velocidad.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn-primary" routerLink="/f1">Explorar F1</a>
+      <a class="btn btn-outline" routerLink="/login">Inicia sesión</a>
+    </div>
+    <div class="hero__metrics">
+      <div class="metric">
+        <strong>05</strong>
+        <span>categorías cubiertas</span>
+      </div>
+      <div class="metric">
+        <strong>24/7</strong>
+        <span>actualizaciones clave</span>
+      </div>
+      <div class="metric">
+        <strong>+120</strong>
+        <span>datos destacados por temporada</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero__media" aria-hidden="true">
+    <div class="hero__glow"></div>
+    <img src="/LANDING-INICIO.jpg" alt="Ilustración de autos de carreras iluminados" loading="lazy" />
+  </div>
+</section>
+
+<section class="section categories">
+  <div class="section__header">
+    <h2>Categorías principales</h2>
+    <p>Selecciona tu serie favorita y descubre calendarios, equipos, pilotos y curiosidades.</p>
+  </div>
+  <div class="category-grid">
+    @for (category of featuredCategories; track category.id) {
+      <article class="category-card" [ngClass]="category.id">
+        <figure class="category-card__cover">
+          <img [src]="category.image" [alt]="category.title" loading="lazy" />
+        </figure>
+        <div class="category-card__body">
+          <h3>{{ category.title }}</h3>
+          <p>{{ category.description }}</p>
+          <a class="btn btn-secondary" [routerLink]="category.route">Ver detalles</a>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="section news">
+  <div class="section__header">
+    <h2>Noticias rápidas</h2>
+    <p>Lo más destacado del momento en todas las categorías de MOTORMANIA.</p>
+  </div>
+  <ul class="news-list">
+    @for (headline of newsFlash; track headline) {
+      <li class="news-item">
+        <span class="dot" aria-hidden="true"></span>
+        <p>{{ headline }}</p>
+      </li>
+    }
+  </ul>
+</section>
+
+<section class="section contact" id="contacto">
+  <div class="contact__info">
+    <h2>¿Quieres compartir una historia?</h2>
+    <p>
+      Escríbenos para hacernos llegar comunicados de prensa, invitaciones a eventos o
+      cualquier pista que no pueda esperar. Nos encanta acelerar la información.
+    </p>
+    <div class="social-icons" aria-label="Redes sociales de MOTORMANIA">
+      <span class="icon" role="img" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M22 12a10 10 0 1 0-11.563 9.874v-6.988H7.898V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.24 0-1.627.771-1.627 1.562V12h2.77l-.443 2.886h-2.327v6.988A10.002 10.002 0 0 0 22 12Z" />
+        </svg>
+      </span>
+      <span class="icon" role="img" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5Zm6.25-3.75a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25Z" />
+        </svg>
+      </span>
+      <span class="icon" role="img" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M18.244 3.5h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 23H1.68l7.73-8.835L1.254 3.5H8.08l4.713 6.231z" />
+        </svg>
+      </span>
+    </div>
+  </div>
+  <form class="contact__form" (submit)="onSubmit($event)" (input)="resetMessage()">
+    <label class="field">
+      <span>Nombre completo</span>
+      <input type="text" name="nombre" placeholder="Ej. Valentina Morales" required />
+    </label>
+    <label class="field">
+      <span>Correo electrónico</span>
+      <input type="email" name="correo" placeholder="tu@correo.com" required />
+    </label>
+    <label class="field field--full">
+      <span>Mensaje</span>
+      <textarea name="mensaje" rows="4" placeholder="Cuéntanos qué quieres compartir" required></textarea>
+    </label>
+    <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+    <p class="form-feedback" *ngIf="submitted()">¡Gracias! Nos pondremos en contacto pronto.</p>
+  </form>
+</section>

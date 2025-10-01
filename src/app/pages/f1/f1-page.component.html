@@ -1,0 +1,105 @@
+<div class="sport-page sport-page--f1">
+  <section class="sport-hero" [style.background-image]="heroImage">
+    <div class="sport-hero__content">
+      <span class="sport-badge">Fórmula 1</span>
+      <h1>Adrenalina y precisión milimétrica en cada curva</h1>
+      <p>
+        La máxima categoría del automovilismo reúne a los mejores pilotos, ingenieros y estrategas del planeta.
+        Temporada 2025 con 24 citas, carreras sprint y batallas cuerpo a cuerpo gracias al efecto suelo.
+      </p>
+      <div class="sport-stats">
+        @for (stat of stats; track stat.label) {
+          <div class="sport-stat">
+            <strong>{{ stat.value }}</strong>
+            <span>{{ stat.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="info-grid">
+    <article class="info-card">
+      <h2>Datos clave 2025</h2>
+      <ul>
+        @for (fact of keyFacts; track fact) {
+          <li>{{ fact }}</li>
+        }
+      </ul>
+      <div class="tag-list">
+        <span class="tag">Pirelli C0-C5</span>
+        <span class="tag">DRS</span>
+        <span class="tag">Efecto suelo</span>
+        <span class="tag">Sprint Weekends</span>
+      </div>
+    </article>
+    <article class="info-card">
+      <h2>Escuderías en forma</h2>
+      <ul>
+        @for (team of teams; track team.name) {
+          <li><strong>{{ team.name }}:</strong> {{ team.detail }}</li>
+        }
+      </ul>
+    </article>
+    <article class="info-card">
+      <h2>Pilotos a seguir</h2>
+      <ul>
+        @for (driver of drivers; track driver.name) {
+          <li><strong>{{ driver.name }}:</strong> {{ driver.highlight }}</li>
+        }
+      </ul>
+    </article>
+  </section>
+
+  <section class="timeline">
+    <h2>Calendario imperdible</h2>
+    @for (stop of calendar; track stop.event) {
+      <div class="timeline__item">
+        <strong>{{ stop.event }}</strong>
+        <span>{{ stop.date }} · {{ stop.track }}</span>
+      </div>
+    }
+  </section>
+
+  <section class="focus-panel">
+    <article class="focus-card">
+      <h3>Innovación técnica</h3>
+      <ul>
+        @for (item of techFocus; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    </article>
+    <article class="focus-card">
+      <h3>Claves estratégicas</h3>
+      <p>
+        La gestión de neumáticos sigue siendo el factor diferencial. Las paradas óptimas combinan undercut agresivo,
+        uso del Safety Car y ahorro de combustible en salidas complicadas.
+      </p>
+      <p>
+        La clasificación del sábado define gran parte del fin de semana, pero las rectas largas y zonas de DRS abren
+        oportunidades a remontadas memorables.
+      </p>
+    </article>
+  </section>
+
+  <section class="highlight-grid">
+    @for (item of highlights; track item.label) {
+      <article class="highlight-card">
+        <span>{{ item.label }}</span>
+        <strong>{{ item.value }}</strong>
+        <span>{{ item.detail }}</span>
+      </article>
+    }
+  </section>
+
+  <section class="media-banner" [style.background-image]="bannerImage">
+    <div class="media-banner__content">
+      <h2>Vueltas de clasificación al filo</h2>
+      <p>
+        Los sábados concentran la magia del motor: autos descargados, energía híbrida a fondo y pilotos que improvisan al
+        límite para encontrar la décima perfecta. La Pole Position sigue siendo oro puro.
+      </p>
+    </div>
+  </section>
+</div>

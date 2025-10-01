@@ -1,0 +1,105 @@
+<div class="sport-page sport-page--lemans">
+  <section class="sport-hero" [style.background-image]="heroImage">
+    <div class="sport-hero__content">
+      <span class="sport-badge">24H Le Mans</span>
+      <h1>La carrera que define la resistencia</h1>
+      <p>
+        Hypercars, GT3 y prototipos conviven durante 24 horas en el mítico Circuit de la Sarthe. La edición 2025 trae
+        más marcas, más fans y tecnología híbrida al límite.
+      </p>
+      <div class="sport-stats">
+        @for (stat of stats; track stat.label) {
+          <div class="sport-stat">
+            <strong>{{ stat.value }}</strong>
+            <span>{{ stat.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="info-grid">
+    <article class="info-card">
+      <h2>Lo que debes saber</h2>
+      <ul>
+        @for (fact of keyFacts; track fact) {
+          <li>{{ fact }}</li>
+        }
+      </ul>
+      <div class="tag-list">
+        <span class="tag">Hyperpole</span>
+        <span class="tag">Slow Zones</span>
+        <span class="tag">Hypercar</span>
+        <span class="tag">LMGT3</span>
+      </div>
+    </article>
+    <article class="info-card">
+      <h2>Escuadras favoritas</h2>
+      <ul>
+        @for (team of teams; track team.name) {
+          <li><strong>{{ team.name }}:</strong> {{ team.detail }}</li>
+        }
+      </ul>
+    </article>
+    <article class="info-card">
+      <h2>Tríos a seguir</h2>
+      <ul>
+        @for (driver of drivers; track driver.name) {
+          <li><strong>{{ driver.name }}:</strong> {{ driver.highlight }}</li>
+        }
+      </ul>
+    </article>
+  </section>
+
+  <section class="timeline">
+    <h2>Semana Le Mans</h2>
+    @for (slot of schedule; track slot.event) {
+      <div class="timeline__item">
+        <strong>{{ slot.event }}</strong>
+        <span>{{ slot.date }} · {{ slot.detail }}</span>
+      </div>
+    }
+  </section>
+
+  <section class="focus-panel">
+    <article class="focus-card">
+      <h3>Puntos críticos</h3>
+      <ul>
+        @for (item of focus; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    </article>
+    <article class="focus-card">
+      <h3>Consejos para fans</h3>
+      <p>
+        Planifica tus guardias de sueño. Las curvas Porsche al amanecer son un espectáculo único y Arnage ofrece la
+        mejor vista nocturna. Lleva radio para seguir la frecuencia oficial ACO.
+      </p>
+      <p>
+        En MOTORMANIA tendrás mapas interactivos, horarios de firmas y un seguimiento en vivo con tiempos sectoriales,
+        stints de pilotos y alertas de safety car.
+      </p>
+    </article>
+  </section>
+
+  <section class="highlight-grid">
+    @for (item of highlights; track item.label) {
+      <article class="highlight-card">
+        <span>{{ item.label }}</span>
+        <strong>{{ item.value }}</strong>
+        <span>{{ item.detail }}</span>
+      </article>
+    }
+  </section>
+
+  <section class="media-banner" [style.background-image]="bannerImage">
+    <div class="media-banner__content">
+      <h2>Noche eterna sobre La Sarthe</h2>
+      <p>
+        Seguimos cada hora con análisis de ritmos promedio, consumo por vuelta y trabajo de los mecánicos. La noche es
+        donde se forjan las leyendas de Le Mans.
+      </p>
+    </div>
+  </section>
+</div>
