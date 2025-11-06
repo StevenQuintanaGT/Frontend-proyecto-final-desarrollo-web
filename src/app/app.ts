@@ -18,6 +18,7 @@ export class App {
     { label: 'NASCAR', path: '/nascar' },
     { label: 'MotoGP', path: '/motogp' },
     { label: '24H Le Mans', path: '/lemans' },
+    { label: 'Sobre Nosotros', path: '/about' },
     { label: 'Login', path: '/login' }
   ];
   protected readonly currentYear = new Date().getFullYear();

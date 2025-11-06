@@ -6,6 +6,7 @@ import { WrcPageComponent } from './pages/wrc/wrc-page.component';
 import { NascarPageComponent } from './pages/nascar/nascar-page.component';
 import { MotogpPageComponent } from './pages/motogp/motogp-page.component';
 import { LemansPageComponent } from './pages/lemans/lemans-page.component';
+import { AboutPageComponent } from './pages/about/about-page.component';
 import { LoginPageComponent } from './pages/login/login-page.component';
 
 export const routes: Routes = [
@@ -15,6 +16,7 @@ export const routes: Routes = [
 	{ path: 'nascar', component: NascarPageComponent, title: 'MOTORMANIA · NASCAR' },
 	{ path: 'motogp', component: MotogpPageComponent, title: 'MOTORMANIA · MotoGP' },
 	{ path: 'lemans', component: LemansPageComponent, title: 'MOTORMANIA · 24H Le Mans' },
+	{ path: 'about', component: AboutPageComponent, title: 'MOTORMANIA · Sobre Nosotros' },
 	{ path: 'login', component: LoginPageComponent, title: 'MOTORMANIA · Login' },
 	{ path: '**', redirectTo: '' }
 ];

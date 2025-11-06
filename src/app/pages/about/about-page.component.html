@@ -1,0 +1,123 @@
+<div class="about-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="main-title">Sobre Nosotros</h1>
+      <p class="hero-subtitle">
+        La plataforma líder en información y cobertura del automovilismo mundial.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quiénes Somos -->
+  <section class="who-we-are">
+    <div class="section-content">
+      <h2 class="section-title">¿Quiénes Somos?</h2>
+      <p class="description">
+        <strong>MOTORMANIA</strong> es la plataforma líder en información y cobertura de las competencias 
+        de automovilismo más emocionantes del mundo. Desde la velocidad pura de la Fórmula 1 hasta 
+        la resistencia de las 24 Horas de Le Mans, pasando por la emoción del WRC, NASCAR y MotoGP, 
+        traemos la pasión del motor directamente a ti.
+      </p>
+      <p class="description">
+        Fundada por entusiastas del automovilismo, nuestra plataforma nace del deseo de crear un 
+        espacio donde los fans puedan encontrar toda la información que necesitan sobre sus 
+        competencias favoritas en un solo lugar. Combinamos tecnología de vanguardia con un amor 
+        genuino por el deporte motor para ofrecerte la mejor experiencia posible.
+      </p>
+    </div>
+  </section>
+
+  <!-- Misión y Visión -->
+  <section class="mission-vision">
+    <div class="mission-vision-grid">
+      <div class="card mission-card">
+        <h3 class="card-title">Nuestra Misión</h3>
+        <p class="card-text">
+          Proporcionar a los aficionados del automovilismo una plataforma completa, actualizada 
+          y accesible con información precisa, noticias en tiempo real, resultados detallados y 
+          análisis profundos de las principales competencias mundiales.
+        </p>
+      </div>
+      <div class="card vision-card">
+        <h3 class="card-title">Nuestra Visión</h3>
+        <p class="card-text">
+          Convertirnos en la comunidad global número uno de automovilismo, donde fans de todo el 
+          mundo se conecten, compartan su pasión por el motor y accedan a contenido 
+          exclusivo e inmersivo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valores -->
+  <section class="values-section">
+    <h2 class="section-title">Nuestros Valores</h2>
+    <div class="values-grid">
+      @for (value of values; track value.title) {
+        <div class="value-card">
+          <h3 class="value-title">{{ value.title }}</h3>
+          <p class="value-description">{{ value.description }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Nuestro Equipo -->
+  <section class="team-section">
+    <h2 class="section-title">Nuestro Equipo</h2>
+    <p class="section-intro">
+      Detrás de MOTORMANIA hay un equipo apasionado de profesionales dedicados a brindarte 
+      la mejor experiencia posible.
+    </p>
+    <div class="team-grid">
+      @for (member of teamMembers; track member.name) {
+        <div class="team-card">
+          <h3 class="team-name">{{ member.name }}</h3>
+          <p class="team-role">{{ member.role }}</p>
+          <p class="team-description">{{ member.description }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Lo que Ofrecemos -->
+  <section class="offerings-section">
+    <h2 class="section-title">Lo que Ofrecemos</h2>
+    <div class="offerings-grid">
+      <div class="offering-item">
+        <h3>Noticias Actualizadas</h3>
+        <p>Información al minuto sobre todas las competencias</p>
+      </div>
+      <div class="offering-item">
+        <h3>Estadísticas Detalladas</h3>
+        <p>Datos y análisis profundos de cada carrera</p>
+      </div>
+      <div class="offering-item">
+        <h3>Cobertura Multimedia</h3>
+        <p>Contenido visual y multimedia de calidad</p>
+      </div>
+      <div class="offering-item">
+        <h3>Comunidad Activa</h3>
+        <p>Conecta con otros fans apasionados</p>
+      </div>
+      <div class="offering-item">
+        <h3>Calendarios Completos</h3>
+        <p>No te pierdas ninguna carrera del año</p>
+      </div>
+      <div class="offering-item">
+        <h3>Alertas Personalizadas</h3>
+        <p>Recibe notificaciones de tus competencias favoritas</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <h2 class="cta-title">Únete a Nuestra Comunidad</h2>
+    <p class="cta-text">
+      Forma parte de miles de aficionados que ya disfrutan de MOTORMANIA
+    </p>
+    <a href="/login" class="cta-button">Registrarse Ahora</a>
+  </section>
+</div>
