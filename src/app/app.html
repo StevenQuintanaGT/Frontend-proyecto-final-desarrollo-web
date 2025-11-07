@@ -13,11 +13,18 @@
         [routerLink]="link.path"
         routerLinkActive="active"
         [routerLinkActiveOptions]="link.exact ? { exact: true } : { exact: false }"
+        *ngIf="!(currentUser()) || link.label !== 'Login'"
       >
         {{ link.label }}
       </a>
     }
   </nav>
+  <div class="auth-area">
+    <div *ngIf="currentUser()">
+      <span class="nav-user">Hola, <strong>{{ currentUser()?.username }}</strong></span>
+      <button class="btn btn-ghost" (click)="logout()">Cerrar sesión</button>
+    </div>
+  </div>
   <button
     type="button"
     class="menu-toggle"
@@ -39,6 +46,7 @@
       routerLinkActive="active"
       [routerLinkActiveOptions]="link.exact ? { exact: true } : { exact: false }"
       (click)="closeMenu()"
+      *ngIf="!(currentUser()) || link.label !== 'Login'"
     >
       {{ link.label }}
     </a>

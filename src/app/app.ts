@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { NgClass, NgIf } from '@angular/common';
+import { getUser, clearToken, isAuthenticated } from './api';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -11,6 +12,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 export class App {
   protected readonly title = 'MOTORMANIA';
   protected readonly menuOpen = signal(false);
+  protected readonly currentUser = signal<any | null>(getUser());
   protected readonly navLinks = [
     { label: 'Inicio', path: '/', exact: true },
     { label: 'F1', path: '/f1' },
@@ -19,6 +21,7 @@ export class App {
     { label: 'MotoGP', path: '/motogp' },
     { label: '24H Le Mans', path: '/lemans' },
     { label: 'Sobre Nosotros', path: '/about' },
+    { label: 'Contacto', path: '/contact' },
     { label: 'Login', path: '/login' }
   ];
   protected readonly currentYear = new Date().getFullYear();
@@ -29,5 +32,12 @@ export class App {
 
   protected closeMenu(): void {
     this.menuOpen.set(false);
+  }
+
+  protected logout(): void {
+    clearToken();
+    this.currentUser.set(null);
+    // optional: refresh to ensure all components update
+    // location.reload();
   }
 }

@@ -14,25 +14,53 @@
       </ul>
     </div>
     <form class="login-form" (submit)="onSubmit($event)" (input)="reset()">
-      <label class="field">
-        <span>Correo electrónico</span>
-        <input type="email" name="correo" placeholder="tu@motormania.com" required />
+      <div class="mode-toggle">
+        <button type="button" class="link" (click)="mode.set('login')" [attr.aria-pressed]="mode() === 'login'">Iniciar sesión</button>
+        <span class="sep">|</span>
+        <button type="button" class="link" (click)="mode.set('register')" [attr.aria-pressed]="mode() === 'register'">Registrarse</button>
+      </div>
+
+      <label class="field" *ngIf="mode() === 'register'">
+        <span>Usuario</span>
+        <input type="text" name="username" placeholder="usuario" required />
+        <small class="field-error" *ngIf="fieldErrors().username">{{ fieldErrors().username }}</small>
       </label>
+
+      <label class="field" *ngIf="mode() === 'register'">
+        <span>Correo electrónico</span>
+        <input type="email" name="email" placeholder="tu@motormania.com" required />
+        <small class="field-error" *ngIf="fieldErrors().email">{{ fieldErrors().email }}</small>
+      </label>
+
+      <label class="field" *ngIf="mode() === 'login'">
+        <span>Usuario</span>
+        <input type="text" name="username" placeholder="usuario" required />
+        <small class="field-error" *ngIf="fieldErrors().username">{{ fieldErrors().username }}</small>
+      </label>
+
       <label class="field">
         <span>Contraseña</span>
-        <input type="password" name="contrasena" placeholder="Tu contraseña" required />
+        <input type="password" name="password" placeholder="Tu contraseña" required />
+        <small class="field-error" *ngIf="fieldErrors().password">{{ fieldErrors().password }}</small>
       </label>
-      <div class="form-row">
+
+      <div class="form-row" *ngIf="mode() === 'login'">
         <label class="checkbox">
           <input type="checkbox" name="recordarme" />
           <span>Recuérdame</span>
         </label>
         <a href="#" class="link-disabled" aria-disabled="true">¿Olvidaste tu contraseña?</a>
       </div>
-      <button type="submit" class="btn btn-primary">Entrar</button>
-      <p class="login-feedback" *ngIf="submitted()">
-        ¡Gracias! Esta sección estará disponible muy pronto. Te avisaremos cuando esté lista.
-      </p>
+
+      <button type="submit" class="btn btn-primary" [disabled]="loading()">{{ mode() === 'login' ? 'Entrar' : 'Registrar' }}</button>
+
+      <p class="error" *ngIf="error()">{{ error() }}</p>
+      <p class="success" *ngIf="success()">{{ success() }}</p>
+
+      <div *ngIf="currentUser">
+        <p>Conectado como <strong>{{ currentUser?.username }}</strong></p>
+        <button type="button" class="btn btn-secondary" (click)="logout()">Cerrar sesión</button>
+      </div>
     </form>
   </section>
   <aside class="login-visual" aria-hidden="true">

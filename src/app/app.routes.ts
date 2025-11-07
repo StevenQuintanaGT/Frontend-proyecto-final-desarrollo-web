@@ -7,6 +7,7 @@ import { NascarPageComponent } from './pages/nascar/nascar-page.component';
 import { MotogpPageComponent } from './pages/motogp/motogp-page.component';
 import { LemansPageComponent } from './pages/lemans/lemans-page.component';
 import { AboutPageComponent } from './pages/about/about-page.component';
+import { ContactPageComponent } from './pages/contact/contact-page.component';
 import { LoginPageComponent } from './pages/login/login-page.component';
 
 export const routes: Routes = [
@@ -17,6 +18,7 @@ export const routes: Routes = [
 	{ path: 'motogp', component: MotogpPageComponent, title: 'MOTORMANIA · MotoGP' },
 	{ path: 'lemans', component: LemansPageComponent, title: 'MOTORMANIA · 24H Le Mans' },
 	{ path: 'about', component: AboutPageComponent, title: 'MOTORMANIA · Sobre Nosotros' },
+	{ path: 'contact', component: ContactPageComponent, title: 'MOTORMANIA · Contacto' },
 	{ path: 'login', component: LoginPageComponent, title: 'MOTORMANIA · Login' },
 	{ path: '**', redirectTo: '' }
 ];

@@ -1,0 +1,39 @@
+<div class="contact-page">
+  <section class="contact-card">
+    <h1>Contacto</h1>
+    <p class="intro">¿Tienes una consulta o sugerencia? Envíanos un mensaje.</p>
+
+    <p class="note">Nota: debes iniciar sesión para enviar un mensaje.</p>
+
+    <form class="contact-form" (submit)="onSubmit($event)">
+      <label class="field">
+        <span>Nombre</span>
+        <input type="text" name="name" required />
+        <small class="field-error" *ngIf="fieldErrors().name">{{ fieldErrors().name }}</small>
+      </label>
+
+      <label class="field">
+        <span>Correo</span>
+        <input type="email" name="email" required />
+        <small class="field-error" *ngIf="fieldErrors().email">{{ fieldErrors().email }}</small>
+      </label>
+
+      <label class="field">
+        <span>Asunto</span>
+        <input type="text" name="subject" required />
+        <small class="field-error" *ngIf="fieldErrors().subject">{{ fieldErrors().subject }}</small>
+      </label>
+
+      <label class="field">
+        <span>Mensaje</span>
+        <textarea name="message" rows="6" required></textarea>
+        <small class="field-error" *ngIf="fieldErrors().message">{{ fieldErrors().message }}</small>
+      </label>
+
+      <button type="submit" class="btn" [disabled]="loading()">Enviar</button>
+
+      <p class="error" *ngIf="error()">{{ error() }}</p>
+      <p class="success" *ngIf="success()">{{ success() }}</p>
+    </form>
+  </section>
+</div>
